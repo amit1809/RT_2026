@@ -18,6 +18,10 @@ const double WHEEL_DISTANCE = 155.8; // Distance between wheels in mm
 const double LEFT_TURN_COMPENSATION = 90.01 / 90.0;  // Correction for left turns
 const double RIGHT_TURN_COMPENSATION = 90.00 / 90.0; // Correction for right turns
 
+// test configuration
+const double l = 97.3;   //So i think that the kp thing applies only to IMU, at least thats what the ai said
+const double r = 95.2;
+
 // PID control parameters
 const double TURN_PID_KP = 160.0;
 const double TURN_PID_KI = 0.0;
@@ -46,14 +50,14 @@ CommandSequence origtestSequence = CommandSequence()
                                    .r();
 // updated test sequence
 CommandSequence testSequence = CommandSequence()
-                                   .l()
-                                   .l()
-                                   .l()
-                                   .l()
-                                   .l()
-                                   .l()
-                                   .l()
-                                   .l();
+                                   .l(l)
+                                   .l(l)
+                                   .l(l)
+                                   .l(l)
+                                   .l(l)
+                                   .l(l)
+                                   .l(l)
+                                   .l(l);
 
 // competition configuration
 // Define total stop time

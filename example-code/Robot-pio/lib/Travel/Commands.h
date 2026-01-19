@@ -36,12 +36,12 @@ public:
 
     CommandSequence &left(double degrees = 90)
     {
-        return turn(-degrees);
+        return turn(degrees);
     }
 
     CommandSequence &right(double degrees = 90)
     {
-        return turn(degrees);
+        return turn(-degrees);
     }
 
     CommandSequence &forward(long distance = 500)
