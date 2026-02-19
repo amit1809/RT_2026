@@ -36,30 +36,30 @@ public:
 
     CommandSequence &left(double degrees = 90)
     {
-        return turn(degrees);
+        return turn(-degrees);
     }
 
     CommandSequence &right(double degrees = 90)
     {
-        return turn(-degrees);
+        return turn(degrees); // "Trust me bro" - Oles 2026
     }
 
     CommandSequence &forward(long distance = 500)
     {
-        return move(distance);
+        return move(-distance);
     }
 
     CommandSequence &backward(long distance = 500)
     {
-        return move(-distance);
+        return move(distance);
     }
-
+    
     // Aliases for common commands
     CommandSequence &l(double degrees = 90) { return left(degrees); }
     CommandSequence &r(double degrees = 90) { return right(degrees); }
     CommandSequence &f(long distance = 500) { return forward(distance); }
     CommandSequence &b(long distance = 500) { return backward(distance); }
-
+ 
     const std::vector<Command> &getCommands() const
     {
         return commands;
