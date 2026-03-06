@@ -3,6 +3,10 @@
 
 #include <Arduino.h>
 #include <vector>
+#include <cmath>
+
+// For waiting stuff
+// double Add_Stop_Time = 0;
 
 struct Command
 {
@@ -53,11 +57,15 @@ public:
     {
         return move(distance);
     }
-    
+    CommandSequence &adjust(double x, double y, double angle) {
+        commands.push_back({"turn", angle + std::atan2(y,x)});
+        commands.push_back({"move", std::sqrt(x*x + y*y)});
+        return *this;
+    }
     // Aliases for common commands
     CommandSequence &l(double degrees = 90) { return left(degrees); }
     CommandSequence &r(double degrees = 90) { return right(degrees); }
-    CommandSequence &f(long distance = 500) { return forward(distance); }
+    CommandSequence &f(long distance = 500) { return forward(distance);}
     CommandSequence &b(long distance = 500) { return backward(distance); }
  
     const std::vector<Command> &getCommands() const
